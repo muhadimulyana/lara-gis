@@ -23,6 +23,9 @@
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="assets/dashforge/css/dashforge.css">
     <link rel="stylesheet" href="assets/dashforge/css/dashforge.dashboard.css">
+
+    {{-- Leaflet JS --}}
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css">
 </head>
 
 <body class="page-profile">
@@ -49,13 +52,13 @@
         <div class="navbar-right">
             <div class="dropdown dropdown-profile">
                 <a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
-                    <div class="avatar avatar-sm"><img src="assets/dashforge/img/img1.png" class="rounded-circle"
-                            alt=""></div>
+                    <div class="avatar avatar-sm"><img src="assets/custom/img/user.svg" class="rounded-circle" alt="">
+                    </div>
                 </a><!-- dropdown-link -->
                 <div class="dropdown-menu dropdown-menu-right tx-13">
-                    <div class="avatar avatar-lg mg-b-15"><img src="assets/dashforge/img/img1.png"
-                            class="rounded-circle" alt=""></div>
-                    <h6 class="tx-semibold mg-b-5">Katherine Pechon</h6>
+                    <div class="avatar avatar-lg mg-b-15"><img src="assets/custom/img/user.svg" class="rounded-circle"
+                            alt=""></div>
+                    <h6 class="tx-semibold mg-b-5">Muhamad Adi Mulyana</h6>
                     <p class="mg-b-25 tx-12 tx-color-03">Administrator</p>
                     <a href="page-signin.html" class="dropdown-item"><i data-feather="log-out"></i>Sign Out</a>
                 </div><!-- dropdown-menu -->
@@ -65,7 +68,7 @@
 
     <div class="content content-fixed">
         <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
-            <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+            <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-10 mg-xl-b-10">
                 <div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-style1 mg-b-10">
@@ -86,23 +89,24 @@
                 <div class="col-lg-12 col-xl-12 mg-t-5">
                     <div class="card">
                         <div class="card-header pd-y-20 d-md-flex align-items-center justify-content-between">
-                            <h6 class="mg-b-0">Account & Monthly Recurring Revenue Growth</h6>
+                            <h6 class="mg-b-0">Data Peta PAN ERA Group</h6>
                             <ul class="list-inline d-flex mg-t-20 mg-sm-t-10 mg-md-t-0 mg-b-0">
                                 <li class="list-inline-item d-flex align-items-center">
                                     <span class="d-block wd-10 ht-10 bg-df-1 rounded mg-r-5"></span>
-                                    <span class="tx-sans tx-uppercase tx-10 tx-medium tx-color-03">Growth Actual</span>
+                                    <span class="tx-sans tx-uppercase tx-10 tx-medium tx-color-03">Category 1</span>
                                 </li>
                                 <li class="list-inline-item d-flex align-items-center mg-l-5">
                                     <span class="d-block wd-10 ht-10 bg-df-2 rounded mg-r-5"></span>
-                                    <span class="tx-sans tx-uppercase tx-10 tx-medium tx-color-03">Actual</span>
+                                    <span class="tx-sans tx-uppercase tx-10 tx-medium tx-color-03">Category 2</span>
                                 </li>
                                 <li class="list-inline-item d-flex align-items-center mg-l-5">
                                     <span class="d-block wd-10 ht-10 bg-df-3 rounded mg-r-5"></span>
-                                    <span class="tx-sans tx-uppercase tx-10 tx-medium tx-color-03">Plan</span>
+                                    <span class="tx-sans tx-uppercase tx-10 tx-medium tx-color-03">Category 3</span>
                                 </li>
                             </ul>
                         </div><!-- card-header -->
                         <div class="card-body pos-relative pd-0">
+                            <div id="mapid" style="height: 400px;"></div>
                         </div><!-- card-body -->
                     </div><!-- card -->
                 </div>
@@ -112,14 +116,12 @@
 
     <footer class="footer">
         <div>
-            <span>&copy; 2019 DashForge v1.0.0. </span>
-            <span>Created by <a href="http://themepixels.me">ThemePixels</a></span>
+            <span>&copy; 2019 PAN ERA GROUP</span>
+            <span>Created by <a href="#">IT Team</a></span>
         </div>
         <div>
             <nav class="nav">
-                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licenses</a>
-                <a href="../../change-log.html" class="nav-link">Change Log</a>
-                <a href="https://discordapp.com/invite/RYqkVuw" class="nav-link">Get Help</a>
+                <a href="#" class="nav-link">Open Sreet Map</a>
             </nav>
         </div>
     </footer>
@@ -131,6 +133,21 @@
 
     <script src="assets/dashforge/js/dashforge.js"></script>
 
+    {{-- Leaflet --}}
+    <script src="assets/leaflet/leaflet.js"></script>
+    <script>
+        var mymap = L.map('mapid').setView([-6.3214913860731, 107.14830258897996], 17);
+
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            subdomains: ['a', 'b', 'c']
+        }).addTo(mymap);
+
+        var marker = L.marker([-6.3214913860731, 107.14830258897996]).addTo(mymap);
+        marker.bindPopup("<b>Hello</b><br>I work in here.").openPopup();
+
+    </script>
 </body>
 
 </html>
