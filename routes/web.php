@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
 
 Route::get('/map', function () {
     return view('app');
 });
 
-Route::post('/getCoord', [CoordController::class, 'getCoordinates']);
-Route::post('/addCoord', [CoordController::class, 'store']);
+Route::post('/getCoord', [CoordController::class, 'getCoordinates'])->name('getCoord');
+Route::post('/addCoord', [CoordController::class, 'store'])->name('addCoord');

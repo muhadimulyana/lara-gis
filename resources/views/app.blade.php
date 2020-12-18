@@ -143,7 +143,7 @@
             function onLocationFound(e) {
                 var radius = e.accuracy / 2;
                 L.marker(e.latlng).addTo(mymap)
-                    .bindPopup("You are within " + radius + " meters from this point").openPopup();
+                    .bindPopup("Akurat sampai " + Math.round(radius) + " meter").openPopup();
                 L.circle(e.latlng, radius).addTo(mymap);
             }
 
@@ -153,7 +153,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/getCoord',
+                url: "{{ route('getCoord') }}",
                 data: {
                     "_token": csrf
                 },
@@ -166,7 +166,7 @@
             $("#formCoord").submit(function (e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "/addCoord",
+                    url: "{{ route('addCoord') }}",
                     data: $(this).serialize(),
                     type: "POST",
                     success: function (response) {
